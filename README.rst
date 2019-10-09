@@ -1,6 +1,6 @@
-=========
+==========
 aiorecycle
-=========
+==========
 
 .. image:: https://travis-ci.com/mpyatishev/aiorecycle.svg?branch=master
     :target: https://travis-ci.com/mpyatishev/aiorecycle
