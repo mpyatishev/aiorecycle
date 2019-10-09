@@ -31,9 +31,9 @@ Usage example
    import aiorecycle
 
 
-   @aiorecycle.Cycle()
+   @aiorecycle.cycle()
    async def task():
-       if asyncio.get_event_loop().time() % 2:
+       if asyncio.get_event_loop().time() % 2 == 0:
            print('make some periodic work')
 
 
