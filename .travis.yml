@@ -6,7 +6,7 @@ matrix:
 install:
   - pip install -r requirements-dev.txt
 script:
-  - pytest tests --cov=aioevents
+  - pytest tests --cov=aiorecycle
 cache:
   - apt
   - directories:
