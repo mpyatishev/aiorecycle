@@ -1,0 +1,27 @@
+dist: xenial
+language: python
+matrix:
+  include:
+    - python: '3.7'
+install:
+  - pip install -r requirements-dev.txt
+script:
+  - pytest tests --cov=aioevents
+cache:
+  - apt
+  - directories:
+    - "$HOME/.cache/pip"
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+after_success: codecov
+deploy:
+  provider: pypi
+  user: mpyatishev
+  password:
+        secure: IVl+bnQnVVizA0mVd6n7+lS7rKX6LgW1SxOS43p314j2yptk+3Rhr/NnIezUXEzXq5ajZ8dpc/bpB/RNto9rhpI3IOhCZfzEaw4Zddc3cawzbjyPdnIlz6Qi1bfNxMbDNtL/0b3q4u7441THCFPBqjXRoWdv6lObZUJ8i4ScodQPE5rZ3l5E1YCBtgRZtyoVm9BhZywVvV0rYx1bZ7NW69g/F9/x0AmrnENc7Z+0jqmeGKS4qPgQmZInBGl9LC0UEOrmZSOEWi3OTEAYLoXp9igacgNeGv6HQw2BP5d2rO1xdqYTn+CHiJ1mNT+c2U6rpVaQ67qdZKX2ywfA5nr79P3b9BhXysR7Bo1wj3p9NKqv71OqXWA88WDAu2+vpWo8qN1K3OJ37US22Hheah3Y4jYacd2YnTu3xXmuFQnLtgOjqS/VDKXdwzeDUYQwqBPg4eY1GTtZrbPoJlLcqbg8XsXYype3Wgq9jvOJb8fZ9XSztUGzIYYamQS8yzo61nROAaGPUsGUGFXlAa3bEHHdqAbxyakLs2Z2dTtOMNy+kjS7AAbALiJy2TPp1Yo+dsCSzObOgTr1y96wdAAd3KCRjMsupCHwBXYS6tlErcsLBFvODyW813vB745DWjyEX6OYpijP3bNqisfwKRh1//6RTTEIueHZgk+g+Vj7NBsSKt4=
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: true
+    all_branches: true
+    python: 3.7

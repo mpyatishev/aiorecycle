@@ -1,0 +1,7 @@
+-e .
+codecov
+mypy
+pytest
+pytest-asyncio
+pytest-cov
+pytest-pspec
