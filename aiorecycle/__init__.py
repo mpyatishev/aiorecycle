@@ -2,7 +2,7 @@ import asyncio
 import functools
 
 
-__VERSION__ = "0.0.1"
+__VERSION__ = "0.0.2"
 
 
 class CycleStop(Exception):
