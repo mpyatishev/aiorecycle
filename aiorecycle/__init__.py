@@ -20,6 +20,6 @@ def cycle(sleep=0.1):
                 pass
             else:
                 await asyncio.sleep(sleep, loop)
-                await loop.create_task(wrapper(*args, **kwargs))
+                loop.create_task(wrapper(*args, **kwargs))
         return wrapper
     return deco
